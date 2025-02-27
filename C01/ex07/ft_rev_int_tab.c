@@ -1,29 +1,50 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr.c                                        :+:      :+:    :+:   */
+/*   ft_rev_int_tab.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mfontain <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/06 17:53:07 by mfontain          #+#    #+#             */
-/*   Updated: 2025/02/26 06:42:17 by mfontain         ###   ########.fr       */
+/*   Created: 2025/02/26 06:44:10 by mfontain          #+#    #+#             */
+/*   Updated: 2025/02/26 09:11:57 by mfontain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include <unistd.h>
-
-void	ft_putstr(char *str)
+void	ft_rev_int_tab(int *tab, int size)
 {
 	int	i;
+	int	j;
+	int	temp;
 
 	i = 0;
-	while (str[i])
+	j = size - 1;
+	while (i < j)
 	{
-		write (1, &str[i], 1);
-		i++ ;
+		temp = tab[i];
+		tab[i] = tab[j];
+		tab[j] = temp;
+		i++;
+		j--;
 	}
 }
-/*
-int main()
+/*#include<stdio.h>
+int main ()
 {
-	ft_putstr("hello 42");
+	int x = 5;
+	int k = 0;
+	int tableau [5] = {-2147483648,2, 3, 4, 2147483647};
+
+	while (k < x)
+	{
+		printf("%d ", tableau[k]);
+		k++;
+	}
+	ft_rev_int_tab(tableau, x);
+	printf("\n");
+	k = 0;
+	while (k < x)
+	{
+		printf("%d ", tableau[k]);
+		k++;
+	}
+	
 }*/
